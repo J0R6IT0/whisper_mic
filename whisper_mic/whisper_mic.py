@@ -180,7 +180,7 @@ class WhisperMic:
                     result = self.audio_model.transcribe(audio_data,language='english',suppress_tokens="")
                 else:
                     result = self.audio_model.transcribe(audio_data,suppress_tokens="")
-                predicted_text = result["text"]
+                predicted_text = result["language"] + "|" + result["text"]
 
             if not self.verbose:
                 if predicted_text not in self.banned_results:
